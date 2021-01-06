@@ -1,0 +1,14 @@
+.textField {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formControl,
+.button {
+  margin: 0.5em 0;
+}
+
+.button {
+  padding: 10px 0;
+}
