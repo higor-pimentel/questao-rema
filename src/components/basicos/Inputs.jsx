@@ -128,7 +128,7 @@ class Entradas extends Component {
           <FormControl className={classes.formControl}>
             <TextField
               name='propriedadeG'
-              label='Propriedade do material da viga'
+              label='Propriedade do material da viga (GPa)'
               variant='outlined'
               required
               fullWidth

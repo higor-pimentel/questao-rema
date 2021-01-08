@@ -32,7 +32,12 @@ class Resolucao extends Component {
 
   anguloDeTorcao = (raio, comprimentoSecao) => {
     const { torque, propriedadeG } = this.props.entradas;
-    return ((torque * comprimentoSecao) / (Math.PI / 2)) * raio * propriedadeG;
+    return (
+      ((torque * comprimentoSecao) / (Math.PI / 2)) *
+      raio *
+      propriedadeG *
+      Math.pow(10, 9)
+    );
   };
 
   selecionaSecao(secao) {
@@ -53,7 +58,7 @@ class Resolucao extends Component {
   raio = () => {
     const { tauMax, torque } = this.props.entradas;
     let aux = torque / ((tauMax * Math.PI) / 2);
-    return Math.cbrt(aux);
+    return parseFloat(Math.cbrt(aux).toFixed(2));
   };
 
   tensaoCisalhante = () => {
@@ -62,7 +67,9 @@ class Resolucao extends Component {
 
   tensoesLimites = (tensaoCalculada) => {
     const { tauMax } = this.props.entradas;
-    return tensaoCalculada <= tauMax ? 'Dentro do Limite' : 'Fora do limite';
+    if (tensaoCalculada <= tauMax) return 'Dentro do Limite';
+    else if (tensaoCalculada <= tauMax) return 'Fora do limite';
+    else return 'Não foi possível avaliar';
   };
 
   handleChange = (event) => {
