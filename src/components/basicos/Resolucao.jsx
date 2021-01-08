@@ -56,12 +56,8 @@ class Resolucao extends Component {
     return Math.cbrt(aux);
   };
 
-  reacoes = () => {
-    return 20;
-  };
-
   tensaoCisalhante = () => {
-    return 10;
+    return 0;
   };
 
   tensoesLimites = (tensaoCalculada) => {
